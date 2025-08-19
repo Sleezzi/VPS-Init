@@ -53,7 +53,6 @@ sudo adduser sleezzi
 sudo adduser sleezzi sudo # Add user as admin
 
 sudo adduser default --no-create-home
-echo Rebooting...
 sudo mkdir /home/sleezzi/pool
 sudo chmod a-wrx u+rwx g+wr /home/sleezzi/pool
 
@@ -65,8 +64,10 @@ sudo mkdir /website
 sudo chmod a+rx a-w u+w /website
 sudo mkdir /website/cdn.sleezzi.fr
 sudo chmod a+rx a-w u+w /website/cdn.sleezzi.fr
-wget https://init.sleezzi.fr/cdn-nginx && sudo mv ./cdn-nginx /etc/nginx/site-available/cdn.sleezzi.fr
+wget https://init.sleezzi.fr/cdn-nginx && \
+sudo mv ./cdn-nginx /etc/nginx/site-available/cdn.sleezzi.fr && \
 sudo ln -s /etc/nginx/site-available/cdn.sleezzi.fr /etc/nginx/site-enabled/
 sudo systemctl reload nginx
-
-sudo reboot
+cls && \
+echo "Rebooting" && \
+sudo reboot # Reboot the VPS to apply all the changement
