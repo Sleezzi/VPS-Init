@@ -1,0 +1,21 @@
+[DEFAULT]
+loglevel = INFO
+logtarget = /var/log/fail2ban.log
+syslogsocket = auto
+socket = /var/run/fail2ban/fail2ban.sock
+pidfile = /var/run/fail2ban/fail2ban.pid
+dbfile = /var/lib/fail2ban/fail2ban.sqlite3
+dbpurgeage = 1d
+dbmaxmatches = 10
+
+[Definition]
+
+[Thread]
+
+[sshd]
+loglevel  = WARNING
+logtarget = /var/log/ssh_fail2ban.log
+maxretry  = 3
+findtime  = 1d
+bantime   = 1d
+enabled   = true

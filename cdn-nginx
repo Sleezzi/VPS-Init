@@ -1,0 +1,30 @@
+server { # HTTPS
+	server_name cdn.sleezzi.fr;
+
+	listen 443 ssl; # managed by Certbot
+	ssl_certificate /etc/letsencrypt/live/cdn.sleezzi.fr/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/cdn.sleezzi.fr/privkey.pem; # managed by Certbot
+	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+	location /minecraft/instances/Lucwars {
+		alias /website/cdn.sleezzi.fr/Lucwars.zip;
+		add_header Content-Disposition "attachment; filename=Lucwars.zip";
+	}
+
+
+	location /minecraft/instances/Lucwars-Iris {
+		alias /website/cdn.sleezzi.fr/Lucwars-Iris.zip;
+		add_header Content-Disposition "attachment; filename=Lucwars-Iris.zip";
+	}
+}
+
+server {
+	if ($host = cdn.sleezzi.fr) {
+		return 301 https://$host$request_uri;
+	} # managed by Certbot
+
+	listen 80;
+	server_name cdn.sleezzi.fr;
+	return 404; # managed by Certbot
+}
