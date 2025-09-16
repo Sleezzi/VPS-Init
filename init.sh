@@ -69,6 +69,6 @@ sudo mv ./cdn-nginx /etc/nginx/sites-available/cdn.sleezzi.fr && \
 sudo ln -s /etc/nginx/sites-available/cdn.sleezzi.fr /etc/nginx/sites-enabled/ # Create the symbolic link
 sudo rm /etc/nginx/sites-available/default # Remove the default Nginx page
 
-cls && \
+clear && \
 echo "Rebooting" && \
 sudo reboot # Reboot the VPS to apply all the changement
