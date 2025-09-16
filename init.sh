@@ -34,12 +34,12 @@ source /etc/bash.bashrc # Apply the change on this terminal, useless because it 
 
 # Change the ssh port
 sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config.old # Change the port in the config file
-wget https://init.sleezzi.fr/sshd_config && sudo mv ssh_config /etc/ssh/sshd_config # Change the port in the config file
+wget https://sleezzi.fr/VPS-Init/sshd_config && sudo mv ssh_config /etc/ssh/sshd_config # Change the port in the config file
 sudo systemctl daemon-reload
 sudo systemctl restart ssh.socket
 
 # Config fail2ban
-wget https://init.sleezzi.fr/jail.local && sudo mv jail.local /etc/fail2ban/jail.local
+wget https://sleezzi.fr/VPS-Init/jail.local && sudo mv jail.local /etc/fail2ban/jail.local
 sudo systemctl restart fail2ban
 
 # Setup the firwall
@@ -64,7 +64,7 @@ sudo mkdir /website
 sudo chmod a+rx a-w u+w /website
 sudo mkdir /website/cdn.sleezzi.fr
 sudo chmod a+rx a-w u+w /website/cdn.sleezzi.fr
-wget https://init.sleezzi.fr/cdn-nginx && \
+wget https://sleezzi.fr/VPS-Init/cdn-nginx && \
 sudo mv ./cdn-nginx /etc/nginx/site-available/cdn.sleezzi.fr && \
 sudo ln -s /etc/nginx/site-available/cdn.sleezzi.fr /etc/nginx/site-enabled/ # Create the symbolic link
 sudo rm /etc/nginx/site-available/default # Remove the default Nginx page
