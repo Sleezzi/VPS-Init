@@ -34,7 +34,7 @@ source /etc/bash.bashrc # Apply the change on this terminal, useless because it 
 
 # Change the ssh port
 sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config.old # Change the port in the config file
-wget https://sleezzi.fr/VPS-Init/sshd_config && sudo mv ssh_config /etc/ssh/sshd_config # Change the port in the config file
+wget https://sleezzi.fr/VPS-Init/sshd_config && sudo mv sshd_config /etc/ssh/sshd_config # Change the port in the config file
 sudo systemctl daemon-reload
 sudo systemctl restart ssh.socket
 
