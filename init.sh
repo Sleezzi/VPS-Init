@@ -30,11 +30,11 @@ sudo apt-get autoclean
 # Add alias
 sudo echo "alias cls=clear" >> /etc/bash.bashrc
 sudo echo "alias ufw=\"sudo ufw\"" >> /etc/bash.bashrc
-source /etc/bash.bashrc # Apply the change on this terminal
+source /etc/bash.bashrc # Apply the change on this terminal, useless because it will be closen by the reboot
 
 # Change the ssh port
 sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config.old # Change the port in the config file
-wget https://init.sleezzi.fr/ssh_config && sudo mv ssh_config /etc/ssh/sshd_config # Change the port in the config file
+wget https://init.sleezzi.fr/sshd_config && sudo mv ssh_config /etc/ssh/sshd_config # Change the port in the config file
 sudo systemctl daemon-reload
 sudo systemctl restart ssh.socket
 
@@ -66,8 +66,9 @@ sudo mkdir /website/cdn.sleezzi.fr
 sudo chmod a+rx a-w u+w /website/cdn.sleezzi.fr
 wget https://init.sleezzi.fr/cdn-nginx && \
 sudo mv ./cdn-nginx /etc/nginx/site-available/cdn.sleezzi.fr && \
-sudo ln -s /etc/nginx/site-available/cdn.sleezzi.fr /etc/nginx/site-enabled/
-sudo systemctl reload nginx
+sudo ln -s /etc/nginx/site-available/cdn.sleezzi.fr /etc/nginx/site-enabled/ # Create the symbolic link
+sudo rm /etc/nginx/site-available/default # Remove the default Nginx page
+
 cls && \
 echo "Rebooting" && \
 sudo reboot # Reboot the VPS to apply all the changement
