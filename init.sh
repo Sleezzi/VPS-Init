@@ -65,9 +65,9 @@ sudo chmod a+rx a-w u+w /website
 sudo mkdir /website/cdn.sleezzi.fr
 sudo chmod a+rx a-w u+w /website/cdn.sleezzi.fr
 wget https://sleezzi.fr/VPS-Init/cdn-nginx && \
-sudo mv ./cdn-nginx /etc/nginx/site-available/cdn.sleezzi.fr && \
-sudo ln -s /etc/nginx/site-available/cdn.sleezzi.fr /etc/nginx/site-enabled/ # Create the symbolic link
-sudo rm /etc/nginx/site-available/default # Remove the default Nginx page
+sudo mv ./cdn-nginx /etc/nginx/sites-available/cdn.sleezzi.fr && \
+sudo ln -s /etc/nginx/sites-available/cdn.sleezzi.fr /etc/nginx/sites-enabled/ # Create the symbolic link
+sudo rm /etc/nginx/sites-available/default # Remove the default Nginx page
 
 cls && \
 echo "Rebooting" && \
