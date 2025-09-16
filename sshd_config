@@ -2,7 +2,6 @@ Include /etc/ssh/sshd_config.d/*.conf
 Port 50150
 AuthorizedKeysFile	.ssh/authorized_keys
 PasswordAuthentication no
-ChallengeResponseAuthentication no
 PermitRootLogin no
 
 KbdInteractiveAuthentication no
@@ -18,4 +17,5 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 
 /!\ SET THIS TO NO /!\
 PasswordAuthentication yes
+ChallengeResponseAuthentication yes
 /!\ SET THIS TO NO /!\
