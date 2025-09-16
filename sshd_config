@@ -16,6 +16,6 @@ AcceptEnv LANG LC_*
 
 Subsystem	sftp	/usr/lib/openssh/sftp-server
 
-/!\ SET THIS TO YES /!\
-PasswordAuthentication no
-/!\ SET THIS TO YES /!\
+/!\ SET THIS TO NO /!\
+PasswordAuthentication yes
+/!\ SET THIS TO NO /!\
