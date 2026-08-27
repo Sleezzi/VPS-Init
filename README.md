@@ -1,6 +1,6 @@
 # Get the script
 ``` shell
-wget https://sleezzi.fr/VPS-Init/init.sh
+wget https://init.sleezzi.fr/init.sh
 ```
 # Launch the script
 ``` shell
