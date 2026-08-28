@@ -46,7 +46,7 @@ sudo systemctl restart fail2ban
 
 # Setup the firwall
 sudo ufw deny 22 comment "Close the default ssh port to avoid brute force attack from bot"
-sudo ufw allow 50150/tcp comment "The new port for ssh connection"
+sudo ufw allow 15150/tcp comment "The new port for ssh connection"
 sudo apt install nginx && \
 sudo ufw allow "Nginx Full" comment "Allow nginx"
 sudo ufw enable
